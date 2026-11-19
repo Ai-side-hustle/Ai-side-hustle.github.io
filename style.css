@@ -1,0 +1,6 @@
+:root{--bg:#f7f3ec;--ink:#1d1b18;--mute:#6b645a;--accent:#b5603c;--line:#e3dbcf}
+@media (prefers-color-scheme:dark){:root{--bg:#1b1a18;--ink:#f2ede4;--mute:#a59d90;--accent:#d98a66;--line:#34312c}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 "Noto Naskh Arabic","Segoe UI",system-ui,sans-serif}
+main{max-width:720px;margin:0 auto;padding:48px 16px 80px}h1{font-size:2rem;margin:0 0 4px}h2{font-size:1.15rem;margin:32px 0 8px}
+.k{color:var(--accent);font-weight:700;letter-spacing:.02em}.m{color:var(--mute);font-size:.9rem}a{color:var(--accent)}hr{border:0;border-top:1px solid var(--line);margin:32px 0}
+nav a{margin-left:16px}code{background:var(--line);padding:2px 6px;border-radius:4px;word-break:break-all}
