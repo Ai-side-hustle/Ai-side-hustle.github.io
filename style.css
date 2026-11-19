@@ -1,6 +1,115 @@
-:root{--bg:#f7f3ec;--ink:#1d1b18;--mute:#6b645a;--accent:#b5603c;--line:#e3dbcf}
-@media (prefers-color-scheme:dark){:root{--bg:#1b1a18;--ink:#f2ede4;--mute:#a59d90;--accent:#d98a66;--line:#34312c}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 "Noto Naskh Arabic","Segoe UI",system-ui,sans-serif}
-main{max-width:720px;margin:0 auto;padding:48px 16px 80px}h1{font-size:2rem;margin:0 0 4px}h2{font-size:1.15rem;margin:32px 0 8px}
-.k{color:var(--accent);font-weight:700;letter-spacing:.02em}.m{color:var(--mute);font-size:.9rem}a{color:var(--accent)}hr{border:0;border-top:1px solid var(--line);margin:32px 0}
-nav a{margin-left:16px}code{background:var(--line);padding:2px 6px;border-radius:4px;word-break:break-all}
+/* fouad_ai — "Roshan": Al-Balad limestone, carved wood lattice, one brass accent. One stylesheet for every page. */
+:root{
+  --lime:#efe7d8;--lime2:#e4d8c3;--wood:#2e5246;--wood2:#23403a;--wood3:#355c4f;
+  --ink:#1d2925;--mute:#56645e;--mute-on-wood:#a9bab2;--brass:#e9c27a;
+  --out:cubic-bezier(.22,1,.36,1);
+  --ar:"IBM Plex Sans Arabic",system-ui,sans-serif;--ruqaa:"Aref Ruqaa",serif
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--lime);color:var(--ink);font:400 18px/1.8 var(--ar);-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--wood);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;inset-inline-start:-999px}.skip:focus{inset-inline-start:16px;top:16px;background:var(--wood);color:var(--lime);padding:8px 12px;z-index:9}
+
+/* header + footer (every page) */
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:16px}
+.mark{font:700 30px/1 var(--ruqaa);color:var(--wood);text-decoration:none}
+.top nav{display:flex;gap:20px;font-size:15px}
+.top nav a{text-decoration:none;color:var(--mute);padding:8px 0}
+.top nav a[aria-current]{color:var(--wood);font-weight:500}
+@media (hover:hover){.top nav a:hover{color:var(--wood)}}
+.foot{background:var(--wood2);color:var(--mute-on-wood);padding:28px 0;font-size:15px}
+.foot .wrap{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.foot a{color:var(--mute-on-wood);text-underline-offset:4px}
+.foot .ai{margin-inline-start:auto}
+
+/* buttons */
+.cta,.ghost{display:inline-flex;align-items:center;min-height:48px;padding:0 24px;border-radius:4px;font-weight:500;text-decoration:none;transition:transform .15s var(--out),box-shadow .2s,background .2s}
+.cta{background:var(--wood);color:var(--lime)}
+.ghost{border:1px solid var(--wood);color:var(--wood);padding:0 22px}
+.cta:active,.ghost:active{transform:translateY(1px) scale(.98)}
+@media (hover:hover) and (pointer:fine){.cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px -8px rgba(29,41,37,.45)}.ghost:hover{background:rgba(46,82,70,.06)}}
+
+/* home: hero */
+.hero{display:grid;grid-template-columns:1fr 460px;gap:64px;align-items:center;padding:40px 0 72px}
+.hero h1{font:700 clamp(36px,5.2vw,68px)/1.3 var(--ar);margin:0 0 20px;letter-spacing:-.01em;text-wrap:balance}
+.hero h1 em{font:700 1.05em var(--ruqaa);color:var(--wood);font-style:normal}
+.lede{font-size:20px;color:var(--mute);max-width:36ch;margin:0 0 32px}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.disclose{display:flex;gap:10px;align-items:flex-start;margin-top:28px;font-size:15px;color:var(--mute);max-width:46ch}
+.disclose svg{flex:none;margin-top:4px}
+
+/* the roshan: Fouad in a carved wooden bay window */
+.roshan{position:relative;background:var(--wood);border-radius:230px 230px 6px 6px;padding:18px;box-shadow:inset 0 0 0 6px var(--wood2)}
+.lattice,.shut,.page .arch{background-image:linear-gradient(45deg,transparent 45%,var(--l,var(--wood)) 45% 55%,transparent 55%),linear-gradient(-45deg,transparent 45%,var(--l,var(--wood)) 45% 55%,transparent 55%)}
+.roshan .lattice{position:absolute;inset:18px;border-radius:212px 212px 2px 2px;background-color:var(--wood2);background-size:26px 26px;opacity:.9}
+.roshan .win{position:relative;border-radius:212px 212px 2px 2px;overflow:hidden;background:radial-gradient(120% 80% at 50% 100%,#f6efe1 0 55%,#e9dcc4 100%);aspect-ratio:3/4;display:flex;align-items:flex-end;justify-content:center;perspective:900px}
+.roshan .win img{height:94%;width:auto;max-width:none}
+.roshan .sill{height:22px;margin:0 -30px;background:var(--wood2);border-radius:3px;position:relative;top:18px}
+.shut{--l:var(--wood2);position:absolute;top:0;bottom:0;width:50%;z-index:3;background-color:var(--wood);background-size:22px 22px;box-shadow:inset 0 0 0 5px var(--wood2);backface-visibility:hidden;visibility:hidden}
+.shut.r{right:0;transform-origin:100% 50%}.shut.l{left:0;transform-origin:0 50%}
+.sun{position:absolute;inset:-20%;z-index:2;pointer-events:none;mix-blend-mode:soft-light;opacity:.55;
+  background-image:linear-gradient(45deg,transparent 46%,#fff 46% 54%,transparent 54%),linear-gradient(-45deg,transparent 46%,#fff 46% 54%,transparent 54%);background-size:44px 44px;animation:sun 14s linear infinite}
+@keyframes sun{to{background-position:44px 88px}}
+.fouad{transform-origin:50% 100%;animation:sway 3.6s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(0) translateY(0)}50%{transform:rotate(-1.1deg) translateY(-5px)}}
+
+/* home: the six floors */
+.levels{background:var(--wood);color:var(--lime);padding:72px 0 96px;scroll-margin-top:16px}
+.levels h2{font:700 34px var(--ar);margin:0 0 8px}
+.levels .intro{color:#c3d0c9;margin:0 0 40px;max-width:52ch}
+.floors{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--wood2);border:2px solid var(--wood2)}
+.floor{background:var(--wood);padding:24px;transition:background .3s}
+@media (hover:hover){.floor:hover{background:var(--wood3)}}
+.floor h3{font:700 18px/1.6 var(--ar);margin:0 0 2px}
+.floor .c{font-size:14px;color:var(--mute-on-wood);margin-bottom:14px;font-variant-numeric:tabular-nums}
+.floor ol{list-style:none;margin:0;padding:0;font-size:15px;line-height:1.7}
+.floor li{display:flex;gap:10px;color:var(--mute-on-wood)}
+.floor li .n{min-width:1.6em;font-variant-numeric:tabular-nums}
+.floor li.on{color:var(--lime)}
+.floor li.on a{color:var(--brass);text-underline-offset:4px}
+.floor details{margin-top:6px;font-size:14px;color:#8fa39a}
+.floor summary{cursor:pointer;padding:6px 0;list-style:none;color:var(--brass)}
+.floor summary::-webkit-details-marker{display:none}
+.floor details[open] summary{display:none}
+
+/* inner pages (terms, privacy, callback) */
+.page{display:grid;grid-template-columns:200px minmax(0,1fr);gap:56px;padding:32px 0 96px}
+.page .arch{position:sticky;top:24px;align-self:start;height:260px;border-radius:100px 100px 4px 4px;background-color:var(--wood2);background-size:22px 22px;box-shadow:inset 0 0 0 8px var(--wood)}
+.page article{max-width:68ch}
+.page h1{font:700 clamp(32px,4vw,48px)/1.3 var(--ar);margin:0 0 4px}
+.page .date{color:var(--mute);font-size:15px;margin:0 0 32px}
+.page h2{font:700 20px var(--ar);margin:36px 0 6px;color:var(--wood)}
+.page p{margin:0 0 12px}
+.page a{color:var(--wood);text-underline-offset:4px}
+.page code{background:var(--lime2);padding:2px 6px;border-radius:3px;font-size:.88em;word-break:break-all}
+[lang=en] .page,.page[lang=en]{font-family:"IBM Plex Sans","IBM Plex Sans Arabic",system-ui,sans-serif}
+.box{background:#fff8ec;border:1px solid var(--lime2);border-radius:6px;padding:16px 18px;margin:20px 0;word-break:break-all}
+
+/* motion (gated: everything is visible without JS and with reduced motion) */
+.js .play .w{display:inline-block;opacity:0;transform:translateY(.55em);animation:wIn .7s var(--out) forwards;animation-delay:calc(var(--i) * 70ms + 120ms)}
+@keyframes wIn{to{opacity:1;transform:none}}
+.js .play .rise{opacity:0;animation:fadeUp .7s var(--out) forwards;animation-delay:var(--d,.7s)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.js .play .shut{visibility:visible}
+.js .play .shut.r{animation:openR 1.4s var(--out) .5s forwards}.js .play .shut.l{animation:openL 1.4s var(--out) .5s forwards}
+@keyframes openR{to{transform:rotateY(-105deg)}}@keyframes openL{to{transform:rotateY(105deg)}}
+.js [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .8s var(--out),transform .8s var(--out);transition-delay:calc(var(--i,0) * 60ms)}
+.js [data-reveal].in{opacity:1;transform:none}
+.js body:not(.play) .w{opacity:0}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;gap:40px;padding-top:16px}
+  .roshan{max-width:330px;width:100%;margin:0 auto}
+  .floors{grid-template-columns:1fr}
+  .page{grid-template-columns:1fr;gap:24px}.page .arch{display:none}
+  .foot .ai{margin-inline-start:0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js [data-reveal],.js .play .w,.js .play .rise,.js body:not(.play) .w{opacity:1;transform:none}
+  .js .play .shut{visibility:hidden}
+}
