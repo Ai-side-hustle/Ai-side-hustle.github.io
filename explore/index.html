@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>فؤاد يشرح · اتجاهات التصميم</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Noto+Kufi+Arabic:wght@500;800&family=Noto+Naskh+Arabic:wght@400;600&family=Readex+Pro:wght@300;500;700&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+<script src="episodes.js"></script>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#fff}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* picker: neutral, not part of any design */
+.picker{position:fixed;inset:auto 0 16px;margin:auto;width:max-content;max-width:calc(100% - 32px);display:flex;gap:4px;padding:4px;background:#202020;border-radius:12px;z-index:99;font:500 14px/1 system-ui,sans-serif;direction:ltr;box-shadow:0 4px 16px rgba(0,0,0,.25);overflow-x:auto}
+.picker button{all:unset;cursor:pointer;color:#bbb;padding:10px 14px;border-radius:8px;white-space:nowrap;min-height:24px}
+.picker button[aria-current]{background:#fff;color:#111}
+.picker button:focus-visible{outline:2px solid #fff}
+
+/* ============ 1. دفتر — the videos' own look (conservative) ============ */
+.v1{--bg:#f6f1e7;--ink:#24201b;--mute:#6e665b;--line:#ddd3c3;--acc:#a8512f;background:var(--bg);color:var(--ink);font:400 18px/1.75 "Noto Naskh Arabic",serif;min-height:100vh}
+.v1 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.v1 header{display:flex;justify-content:space-between;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);font:500 15px "Noto Kufi Arabic",sans-serif}
+.v1 header b{font-weight:800}
+.v1 .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;padding:48px 0 0}
+.v1 h1{font:800 clamp(34px,4.2vw,58px)/1.3 "Noto Kufi Arabic",sans-serif;margin:0 0 20px;text-wrap:balance}
+.v1 .lede{font-size:21px;max-width:34ch;margin:0 0 28px;color:var(--ink)}
+.v1 .cta{display:inline-flex;align-items:center;gap:10px;background:var(--acc);color:#fff;text-decoration:none;font:500 17px "Noto Kufi Arabic";padding:14px 22px;border-radius:6px;min-height:48px}
+.v1 .ai{font-size:15px;color:var(--mute);margin-top:18px}
+.v1 .fig{position:relative}
+.v1 .fig img{width:100%;max-width:340px;margin-inline:auto}
+.v1 .fig::before{content:"";position:absolute;inset:auto 0 0;height:62%;background:#efe5d4;border-radius:200px 200px 0 0;z-index:0}
+.v1 .fig img{position:relative;z-index:1}
+.v1 .path{border-top:2px solid var(--ink);padding:40px 0 120px}
+.v1 h2{font:800 28px "Noto Kufi Arabic";margin:0 0 6px}
+.v1 .path>p{color:var(--mute);margin:0 0 28px}
+.v1 .lv{display:grid;grid-template-columns:220px 1fr;gap:24px;padding:20px 0;border-top:1px solid var(--line)}
+.v1 .lv h3{font:500 16px/1.6 "Noto Kufi Arabic";margin:0;color:var(--mute)}
+.v1 ol{list-style:none;margin:0;padding:0;columns:2;column-gap:32px}
+.v1 li{break-inside:avoid;display:flex;gap:12px;padding:4px 0;font-size:16px;color:var(--mute)}
+.v1 li .n{font:500 14px "Noto Kufi Arabic";min-width:2.4em;color:var(--mute);font-variant-numeric:tabular-nums}
+.v1 li.on{color:var(--ink)}.v1 li.on a{color:var(--acc);font-weight:600;text-decoration-thickness:1px;text-underline-offset:4px}
+.v1 footer{border-top:1px solid var(--line);padding:24px 0 96px;display:flex;gap:24px;font-size:15px;color:var(--mute)}
+
+/* ============ 2. روشان — Al-Balad wood lattice (strong fit) ============ */
+.v2{--lime:#efe7d8;--lime2:#e4d8c3;--wood:#2e5246;--wood2:#23403a;--ink:#1d2925;--mute:#56645e;--acc:#b9852f;background:var(--lime);color:var(--ink);font:400 18px/1.8 "IBM Plex Sans Arabic",sans-serif;min-height:100vh}
+.v2 .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.v2 header{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.v2 .mark{font:700 30px/1 "Aref Ruqaa",serif;color:var(--wood)}
+.v2 header nav{display:flex;gap:20px;font-size:15px}
+.v2 header a{text-decoration:none;color:var(--mute)}
+.v2 .hero{display:grid;grid-template-columns:1fr 460px;gap:64px;align-items:center;padding:40px 0 72px}
+.v2 h1{font:700 clamp(38px,5.4vw,70px)/1.3 "IBM Plex Sans Arabic";margin:0 0 20px;letter-spacing:-.01em;text-wrap:balance}
+.v2 h1 em{font:700 1.05em "Aref Ruqaa",serif;color:var(--wood);font-style:normal}
+.v2 .lede{font-size:20px;color:var(--mute);max-width:36ch;margin:0 0 32px}
+.v2 .acts{display:flex;gap:12px;flex-wrap:wrap}
+.v2 .cta{background:var(--wood);color:var(--lime);text-decoration:none;padding:14px 24px;border-radius:4px;font-weight:500;min-height:48px;display:inline-flex;align-items:center}
+.v2 .ghost{border:1px solid var(--wood);color:var(--wood);text-decoration:none;padding:13px 22px;border-radius:4px;font-weight:500;min-height:48px;display:inline-flex;align-items:center}
+.v2 .ai{display:flex;gap:10px;align-items:center;margin-top:28px;font-size:15px;color:var(--mute)}
+.v2 .ai svg{flex:none}
+/* the roshan: Fouad stands in a carved wooden bay window */
+.v2 .roshan{position:relative;background:var(--wood);border-radius:230px 230px 6px 6px;padding:18px;box-shadow:inset 0 0 0 6px var(--wood2)}
+.v2 .roshan .lat{position:absolute;inset:18px;border-radius:212px 212px 2px 2px;background-color:var(--wood2);
+  background-image:linear-gradient(45deg,transparent 46%,var(--wood) 46% 54%,transparent 54%),linear-gradient(-45deg,transparent 46%,var(--wood) 46% 54%,transparent 54%);background-size:26px 26px;opacity:.9}
+.v2 .roshan .win{position:relative;border-radius:212px 212px 2px 2px;overflow:hidden;background:radial-gradient(120% 80% at 50% 100%,#f6efe1 0 55%,#e9dcc4 100%);aspect-ratio:3/4;display:flex;align-items:flex-end;justify-content:center;
+  -webkit-mask:linear-gradient(#000,#000);}
+.v2 .roshan .win img{height:94%;width:auto;max-width:none}
+.v2 .roshan .sill{height:22px;margin:0 -30px;background:var(--wood2);border-radius:3px;position:relative;top:18px}
+.v2 .lvls{background:var(--wood);color:var(--lime);padding:72px 0 120px}
+.v2 h2{font:700 34px "IBM Plex Sans Arabic";margin:0 0 8px}
+.v2 .lvls>.wrap>p{color:#c3d0c9;margin:0 0 40px;max-width:52ch}
+.v2 .floors{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--wood2);border:2px solid var(--wood2)}
+.v2 .floor{background:var(--wood);padding:24px}
+.v2 .floor h3{font:700 18px "IBM Plex Sans Arabic";margin:0 0 4px}
+.v2 .floor .c{font-size:14px;color:#a9bab2;margin-bottom:14px;font-variant-numeric:tabular-nums}
+.v2 .floor ul{list-style:none;margin:0;padding:0;font-size:15px;line-height:1.7}
+.v2 .floor li{display:flex;gap:10px;color:#a9bab2}
+.v2 .floor li.on{color:var(--lime)}
+.v2 .floor li.on a{color:#e9c27a;text-underline-offset:4px}
+.v2 .floor .more{font-size:14px;color:#8fa39a;margin-top:8px}
+.v2 footer{background:var(--wood2);color:#a9bab2;padding:24px 0 96px;font-size:15px}
+.v2 footer .wrap{display:flex;gap:24px;flex-wrap:wrap}
+
+/* ============ 3. مسار ١٠٠ — the curriculum as the hero (data first) ============ */
+.v3{--bg:#fbfaf6;--ink:#17213d;--mute:#5d6680;--line:#e2e4ec;--cell:#eceef4;--acc:#e0912f;background:var(--bg);color:var(--ink);font:400 17px/1.75 "Readex Pro",sans-serif;min-height:100vh}
+.v3 .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.v3 header{display:flex;align-items:center;gap:14px;padding:22px 0}
+.v3 header img{width:44px;height:44px;border-radius:50%}
+.v3 header b{font-weight:700;font-size:18px}
+.v3 header span{color:var(--mute);font-size:15px;margin-inline-start:auto}
+.v3 .hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;padding:32px 0 48px;align-items:start}
+.v3 .count{font:300 clamp(80px,12vw,168px)/1 "Readex Pro";letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.v3 .count small{font-size:.32em;color:var(--mute);font-weight:300}
+.v3 h1{font:700 clamp(28px,3.4vw,44px)/1.35 "Readex Pro";margin:16px 0 14px;max-width:18ch}
+.v3 .lede{color:var(--mute);max-width:40ch;margin:0 0 24px}
+.v3 .cta{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-weight:500}
+.v3 .ai{font-size:14px;color:var(--mute);margin-top:16px}
+.v3 .grid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px}
+.v3 .grid a,.v3 .grid span{aspect-ratio:1;border-radius:6px;background:var(--cell);display:grid;place-items:center;font-size:12px;color:#9aa1b5;text-decoration:none;font-variant-numeric:tabular-nums;position:relative}
+.v3 .grid .on{background:var(--acc);color:#fff;font-weight:700}
+.v3 .grid .lvstart{box-shadow:inset 0 0 0 2px var(--ink)}
+.v3 .grid [data-t]:hover::after,.v3 .grid [data-t]:focus-visible::after{content:attr(data-t);position:absolute;bottom:calc(100% + 6px);inset-inline-end:0;background:var(--ink);color:#fff;font-size:13px;line-height:1.4;padding:6px 10px;border-radius:6px;width:max-content;max-width:240px;z-index:3;text-align:right}
+.v3 .legend{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--mute);margin-top:14px}
+.v3 .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-inline-end:6px;vertical-align:-1px}
+.v3 .levels{border-top:1px solid var(--line);padding:40px 0 120px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px 40px}
+.v3 .levels h3{font:700 17px "Readex Pro";margin:0 0 2px}
+.v3 .levels p{margin:0;color:var(--mute);font-size:15px}
+.v3 .levels .bar{height:4px;background:var(--cell);border-radius:2px;margin-top:10px;overflow:hidden}
+.v3 .levels .bar i{display:block;height:100%;background:var(--acc)}
+.v3 footer{border-top:1px solid var(--line);padding:24px 0 96px;display:flex;gap:24px;font-size:14px;color:var(--mute)}
+
+/* ============ 4. شاشة — vertical video first, dark (divergent) ============ */
+.v4{--bg:#0e1626;--bg2:#16213a;--ink:#f3efe6;--mute:#9aa6bf;--acc:#f5b942;background:var(--bg);color:var(--ink);font:400 18px/1.75 "Tajawal",sans-serif;min-height:100vh;overflow:hidden}
+.v4 .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+.v4 header{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-size:16px}
+.v4 header b{font:900 22px "Tajawal"}
+.v4 header a{color:var(--mute);text-decoration:none}
+.v4 .hero{display:grid;grid-template-columns:1fr 360px;gap:72px;align-items:center;padding:24px 0 64px}
+.v4 h1{font:900 clamp(44px,6.4vw,88px)/1.15 "Tajawal";margin:0 0 20px;text-wrap:balance}
+.v4 .lede{color:var(--mute);font-size:21px;max-width:32ch;margin:0 0 28px}
+.v4 .cta{display:inline-flex;align-items:center;min-height:52px;padding:0 26px;border-radius:999px;background:var(--acc);color:#1a1405;font-weight:700;text-decoration:none}
+.v4 .ai{font-size:15px;color:var(--mute);margin-top:18px}
+.v4 .phone{position:relative;aspect-ratio:9/19.5;background:#000;border-radius:44px;padding:10px;box-shadow:0 0 0 2px #2a3550,0 30px 80px rgba(0,0,0,.45)}
+.v4 .screen{position:relative;height:100%;border-radius:34px;overflow:hidden;background:linear-gradient(#f6f1e7,#efe5d4)}
+.v4 .screen img{position:absolute;bottom:0;inset-inline:0;margin:auto;height:86%;width:auto;max-width:none}
+.v4 .screen .tag{position:absolute;top:18px;inset-inline:16px;display:flex;justify-content:space-between;font:700 12px "Tajawal";color:#3a3227}
+.v4 .cap{position:absolute;bottom:22%;inset-inline:16px;background:#fff;color:#1e1b16;border-radius:10px;padding:10px 14px;font:700 17px/1.5 "Tajawal";text-align:center;box-shadow:0 2px 0 rgba(0,0,0,.08);min-height:2.6em}
+.v4 .cap u{color:#a8512f;text-decoration-thickness:2px;text-underline-offset:5px}
+.v4 .rail{padding:8px 0 120px}
+.v4 h2{font:900 28px "Tajawal";margin:0 0 18px}
+.v4 .cards{display:grid;grid-auto-flow:column;grid-auto-columns:200px;gap:16px;overflow-x:auto;padding-bottom:16px;scroll-snap-type:x mandatory}
+.v4 .card{scroll-snap-align:start;aspect-ratio:9/16;background:var(--bg2);border-radius:18px;padding:18px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:var(--ink);border:1px solid #23304d}
+.v4 .card .n{font:900 44px/1 "Tajawal";color:#2e3b5c;font-variant-numeric:tabular-nums}
+.v4 .card.on .n{color:var(--acc)}
+.v4 .card h3{font:700 18px/1.45 "Tajawal";margin:0}
+.v4 .card small{color:var(--mute);font-size:14px}
+.v4 footer{border-top:1px solid #23304d;padding:24px 0 96px;display:flex;gap:24px;font-size:15px;color:var(--mute)}
+.v4 footer a{color:var(--mute)}
+
+@media (max-width:860px){
+  .v1 .hero,.v2 .hero,.v3 .hero,.v4 .hero{grid-template-columns:1fr;gap:32px}
+  .v1 .fig img{margin:auto;max-width:300px}
+  .v1 .lv{grid-template-columns:1fr;gap:8px}.v1 ol{columns:1}
+  .v2 .roshan{max-width:320px;margin:auto}.v2 .floors{grid-template-columns:1fr}
+  .v3 .levels{grid-template-columns:1fr}.v3 .grid{gap:4px}
+  .v4 .phone{width:100%;max-width:280px;margin:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<div class="v1" data-variant>
+ <div class="wrap">
+  <header><b>فؤاد يشرح</b><span>الذكاء الاصطناعي بالجداوي</span></header>
+  <section class="hero">
+   <div>
+    <h1>الذكاء الاصطناعي، من الصفر، بالجداوي.</h1>
+    <p class="lede">كل يوم فيديو دقيقتين: فؤاد يشرح لك فكرة وحدة، بمثال من جدة، وبدون تعقيد.</p>
+    <a class="cta" href="https://www.tiktok.com/@fouad_ai0">تابعه على تيك توك</a>
+    <p class="ai">صوت فؤاد ورسمه مولّدان بالذكاء الاصطناعي.</p>
+   </div>
+   <div class="fig"><img src="../img/fouad-pointing.webp" alt="فؤاد، شخصية كرتونية بثوب وغترة، يشير بيده" width="640" height="960"></div>
+  </section>
+  <section class="path"><h2>المنهج: مية حلقة</h2><p>كل حلقة «الفرق بين» شيئين. الترتيب ترتيب التعلم: كل حلقة تبني على اللي قبلها.</p><div class="levels1"></div></section>
+  <footer><a href="../terms.html">الشروط</a><a href="../privacy.html">الخصوصية</a><span>fouad_ai</span></footer>
+ </div>
+</div>
+
+<!-- 2 -->
+<div class="v2" data-variant hidden>
+ <div class="wrap">
+  <header><span class="mark">فؤاد يشرح</span><nav><a href="#">المنهج</a><a href="https://www.tiktok.com/@fouad_ai0">تيك توك</a></nav></header>
+  <section class="hero">
+   <div>
+    <h1>يا جماعة الخير، تعالوا نفهم <em>الذكاء الاصطناعي</em> بالبسيط.</h1>
+    <p class="lede">فؤاد، ولد البلد، يشرح كل يوم فكرة وحدة في دقيقتين. مثال من جدة، ولهجة جداوية، وبدون مصطلحات تخوّف.</p>
+    <div class="acts"><a class="cta" href="https://www.tiktok.com/@fouad_ai0">شوف الحلقات</a><a class="ghost" href="#">ابدأ من الحلقة ١</a></div>
+    <p class="ai"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>الصوت والرسم مولّدان بالذكاء الاصطناعي، وكل فيديو عليه علامة المحتوى المولّد.</p>
+   </div>
+   <div class="roshan"><div class="lat"></div><div class="win"><img src="../img/fouad-talking.webp" alt="فؤاد واقف في روشان خشبي من بيوت جدة القديمة" width="640" height="960"></div><div class="sill"></div></div>
+  </section>
+ </div>
+ <section class="lvls"><div class="wrap"><h2>ست أدوار، مية حلقة</h2><p>زي بيت من بيوت البلد: تطلع دور دور. من الصفر، لين الذكاء على الحافة وأسئلة المستقبل.</p><div class="floors"></div></div></section>
+ <footer><div class="wrap"><a href="../terms.html">الشروط</a><a href="../privacy.html">الخصوصية</a><span>fouad_ai</span></div></footer>
+</div>
+
+<!-- 3 -->
+<div class="v3" data-variant hidden>
+ <div class="wrap">
+  <header><img src="../img/avatar.webp" alt="" width="44" height="44"><b>فؤاد يشرح</b><span>حلقة كل يوم</span></header>
+  <section class="hero">
+   <div>
+    <div class="count"><span class="done-n"></span> <small>من ١٠٠ حلقة</small></div>
+    <h1>منهج كامل في الذكاء الاصطناعي، دقيقتين في اليوم.</h1>
+    <p class="lede">من «ايش الفرق بين البرنامج العادي والذكاء الاصطناعي» لين النماذج اللغوية والشرائح والذكاء على الحافة. فؤاد يشرحها بالجداوي.</p>
+    <a class="cta" href="https://www.tiktok.com/@fouad_ai0">تابع على تيك توك</a>
+    <p class="ai">صوت فؤاد ورسمه مولّدان بالذكاء الاصطناعي.</p>
+   </div>
+   <div><div class="grid" aria-label="خريطة الحلقات المية"></div><div class="legend"><span><i style="background:#e0912f"></i>نزلت</span><span><i style="background:#eceef4"></i>جاية</span><span><i style="box-shadow:inset 0 0 0 2px #17213d"></i>بداية مستوى</span></div></div>
+  </section>
+  <section class="levels"></section>
+  <footer><a href="../terms.html">الشروط</a><a href="../privacy.html">الخصوصية</a><span>fouad_ai</span></footer>
+ </div>
+</div>
+
+<!-- 4 -->
+<div class="v4" data-variant hidden>
+ <div class="wrap">
+  <header><b>فؤاد يشرح</b><a href="https://www.tiktok.com/@fouad_ai0">@fouad_ai0</a></header>
+  <section class="hero">
+   <div>
+    <h1>دقيقتين.<br>فكرة وحدة.<br>بالجداوي.</h1>
+    <p class="lede">فؤاد يشرح الذكاء الاصطناعي كل يوم، فيديو قصير بمثال تعرفه: ساهر، زحمة التحلية، خرائط الكورنيش.</p>
+    <a class="cta" href="https://www.tiktok.com/@fouad_ai0">شوف آخر حلقة</a>
+    <p class="ai">الصوت والرسم مولّدان بالذكاء الاصطناعي.</p>
+   </div>
+   <div class="phone"><div class="screen"><div class="tag"><span>fouad_ai</span><span>صوت ورسم مولّدان بالذكاء الاصطناعي</span></div><img src="../img/fouad-talking.webp" alt="فؤاد يتكلم داخل شاشة جوال" width="640" height="960"><div class="cap" aria-live="off"></div></div></div>
+  </section>
+  <section class="rail"><h2>الحلقات</h2><div class="cards"></div></section>
+  <footer><a href="../terms.html">الشروط</a><a href="../privacy.html">الخصوصية</a><span>fouad_ai</span></footer>
+ </div>
+</div>
+
+<nav class="picker" aria-label="Variants">
+ <button data-v="1" aria-current="true">1 · Daftar (video look)</button>
+ <button data-v="2">2 · Roshan (Al-Balad)</button>
+ <button data-v="3">3 · Path 100 (curriculum)</button>
+ <button data-v="4">4 · Screen (video first)</button>
+</nav>
+
+<script>
+const E = window.EPISODES, ar = n => n.toLocaleString("ar-SA");
+const link = e => e.tt || e.yt;
+const levels = [...new Set(E.map(e => e.level))];
+const lvName = l => (l.split(": ")[1] || l).replace(/\s*\(.*\)/, ""), lvNo = l => (l.match(/المستوى ([^\s:]+)/) || [])[1];
+const done = E.filter(e => e.done);
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const item = e => e.done ? `<a href="${link(e)}">${esc(e.ar)}</a>` : esc(e.ar);
+
+// 1: grouped list
+document.querySelector(".levels1").innerHTML = levels.map(l => `<div class="lv"><h3>المستوى ${lvNo(l)}<br>${esc(lvName(l))}</h3><ol>${
+  E.filter(e => e.level === l).map(e => `<li class="${e.done ? "on" : ""}"><span class="n">${ar(e.n)}</span><span>${item(e)}</span></li>`).join("")}</ol></div>`).join("");
+
+// 2: floors (first 5 of each level + count)
+document.querySelector(".floors").innerHTML = levels.map(l => { const es = E.filter(e => e.level === l);
+  return `<div class="floor"><h3>الدور ${lvNo(l)}: ${esc(lvName(l))}</h3><div class="c">${ar(es.length)} حلقة · نزل منها ${ar(es.filter(e => e.done).length)}</div><ul>${
+  es.slice(0, 5).map(e => `<li class="${e.done ? "on" : ""}"><span>${ar(e.n)}</span><span>${item(e)}</span></li>`).join("")}</ul>${es.length > 5 ? `<div class="more">و${ar(es.length - 5)} حلقات بعدها</div>` : ""}</div>`; }).join("");
+
+// 3: 10x10 map + level bars
+document.querySelector(".done-n").textContent = ar(done.length);
+const starts = new Set(levels.map(l => E.find(e => e.level === l).n));
+document.querySelector(".grid").innerHTML = E.map(e => { const t = `${ar(e.n)}. ${e.ar}`, cls = (e.done ? "on " : "") + (starts.has(e.n) ? "lvstart" : "");
+  return e.done ? `<a class="${cls}" href="${link(e)}" data-t="${esc(t)}">${ar(e.n)}</a>` : `<span class="${cls}" tabindex="0" data-t="${esc(t)}">${ar(e.n)}</span>`; }).join("");
+document.querySelector(".v3 .levels").innerHTML = levels.map(l => { const es = E.filter(e => e.level === l), d = es.filter(e => e.done).length;
+  return `<div><h3>المستوى ${lvNo(l)}: ${esc(lvName(l))}</h3><p>${ar(es[0].n)}–${ar(es.at(-1).n)} · ${ar(d)} من ${ar(es.length)}</p><div class="bar"><i style="width:${d / es.length * 100}%"></i></div></div>`; }).join("");
+
+// 4: cards (published first, then the next ones)
+const next = E.filter(e => !e.done).slice(0, 8);
+document.querySelector(".cards").innerHTML = [...done, ...next].map(e => `<a class="card ${e.done ? "on" : ""}" ${e.done ? `href="${link(e)}"` : 'aria-disabled="true"'}><span class="n">${ar(e.n)}</span><div><h3>${esc(e.ar)}</h3><small>${e.done ? "شوفها الحين" : "قريب"}</small></div></a>`).join("");
+// the caption types out a real line from episode 1, word by word, like the videos
+const line = "ساهر برنامج عادي، وزحمة التحلية تبغى ذكاء اصطناعي".split(" ");
+const cap = document.querySelector(".v4 .cap");
+let w = 0; const tick = () => { if (matchMedia("(prefers-reduced-motion: reduce)").matches) { cap.textContent = line.join(" "); return; }
+  cap.innerHTML = line.map((x, i) => i === w ? `<u>${x}</u>` : x).slice(0, w + 1).join(" "); w = (w + 1) % (line.length + 3); };
+tick(); setInterval(tick, 420);
+
+// picker
+const views = [...document.querySelectorAll("[data-variant]")], tabs = [...document.querySelectorAll(".picker [data-v]")];
+const show = n => { n = Math.min(Math.max(1, n), views.length); views.forEach((el, i) => el.hidden = i !== n - 1);
+  tabs.forEach((b, i) => b.toggleAttribute("aria-current", i === n - 1)); const u = new URL(location); u.searchParams.set("v", n); history.replaceState(null, "", u); };
+const cur = () => tabs.findIndex(b => b.hasAttribute("aria-current")) + 1;
+tabs.forEach(b => b.addEventListener("click", () => show(+b.dataset.v)));
+addEventListener("keydown", e => { if (e.metaKey || e.ctrlKey || e.altKey || e.target.closest("input,textarea,select,[contenteditable]")) return;
+  if (/^[1-9]$/.test(e.key)) show(+e.key); if (e.key === "ArrowRight") show(cur() - 1); if (e.key === "ArrowLeft") show(cur() + 1); });
+show(+new URLSearchParams(location.search).get("v") || 1);
+</script>
+</body>
+</html>
